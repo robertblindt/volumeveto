@@ -28,22 +28,23 @@ def audio_metering(main_wav_file):
         count+=1
         one_second_loudness = meter.integrated_loudness(main_data[i*main_rate:(i+1)*main_rate])
 
-        X = rfft(main_data[i*main_rate:(i+1)*main_rate])
-        N = len(X)
-        n = np.arange(N)
+        # Moved over to a Jupyter Notebook to fix the FFT issues
+        # X = rfft(main_data[i*main_rate:(i+1)*main_rate])
+        # N = len(X)
+        # n = np.arange(N)
 
-        T = N/main_rate
-        freq = n/T 
-        print(freq, n, T)
-        plt.figure(figsize = (12, 6))
-        plt.plot(freq, np.abs(X), 'r')
+        # T = N/main_rate
+        # freq = n/T 
+        # print(freq, n, T)
+        # plt.figure(figsize = (12, 6))
+        # plt.plot(freq, np.abs(X), 'r')
         # plt.subplot(121)
 
         # plt.stem(freq, np.abs(X), 'b', \
         #         markerfmt=" ", basefmt="-b")
-        plt.xlabel('Freq (Hz)')
-        plt.ylabel('FFT Amplitude |X(freq)|')
-        plt.show()
+        # plt.xlabel('Freq (Hz)')
+        # plt.ylabel('FFT Amplitude |X(freq)|')
+        # plt.show()
 
         one_second_ave_loudness.append(one_second_loudness)
     return full_clip_loudness, one_second_ave_loudness
